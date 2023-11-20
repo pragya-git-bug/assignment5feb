@@ -1,0 +1,181 @@
+Assignment 5th feb
+
+Answer1 
+// WAP to remove duplicates from a string
+public class Q1 {
+    public static void main(String[] args) {
+        String s = "programming";
+        System.out.println("Before "+ s);
+        String outpuString = "";
+        for(int i=0 ; i<s.length() ;i++){
+            char ch = s.charAt(i);
+            int j = s.indexOf(ch,i+1);
+            if (j==-1) {
+                outpuString = outpuString+ch;
+            }
+        }
+
+        System.out.println("After "+outpuString);
+    }
+}
+
+Answer2
+// WAP to print duplicate characters from string.
+public class Q2 {
+    public static void main(String[] args) {
+        String inputString = "kitkat";
+        String outpuString = "";
+        for(int i=0;i<inputString.length() ; i++){
+            char ch = inputString.charAt(i);
+            int j = inputString.indexOf(ch,i+1);
+            if (j!=-1) {
+                outpuString = outpuString + ch;
+            }
+        }
+
+        System.out.println("Before "+inputString);
+        System.out.println("After "+outpuString);
+    }
+}
+
+Answer3
+// WAP to check if 2552 is pallindrome or not.
+public class Q3 {
+    public static void main(String[] args) {
+        String inpuString = "2552";
+        String revString = "";
+        for(int i=inpuString.length()-1 ; i>=0 ;i--){
+            revString = revString + inpuString.charAt(i);
+        }
+
+        System.out.println(inpuString.equals(revString));
+    }
+}
+
+Answer4
+//WAP to count vowels, consonants and special characters in string;
+public class Q4 {
+    public static void main(String[] args) {
+        String inpuString = "java@pwskill";
+        int vowelCnt = 0, consonantCnt=0, specialCnt=0;
+        char ch[] = inpuString.toCharArray();
+        for (int i = 0; i < ch.length; i++) {
+            if (ch[i]>=97 && ch[i]<=122) {
+                if (ch[i]=='a'||ch[i]=='e'||ch[i]=='i'||ch[i]=='o'||ch[i]=='u') {
+                    vowelCnt++;
+                }else{
+                    consonantCnt++;
+                }
+            }else{
+                specialCnt++;
+            }
+        }
+        System.out.println("vowel count "+vowelCnt);
+        System.out.println("consonant count "+consonantCnt);
+        System.out.println("special char count "+specialCnt);
+    }
+}
+
+Answer5
+//WAP to implement anagram checking least inbuilt method being used.
+public class Q5 {
+    public static void main(String[] args) {
+        String s1 = "listen";
+        String s2 = "silent";
+        if (s1.length()!=s2.length()) {
+            System.out.println("not anagram");
+        }
+        else{
+        int countArray[] = new int[256];
+        for(int i=0;i<s1.length();i++){
+            countArray[s1.charAt(i)]++;
+            countArray[s2.charAt(i)]--;
+        }
+        boolean flag=true;
+        for(int i=0;i<countArray.length;i++){
+            if (countArray[i]!=0) {
+                flag=false;
+            }
+        }
+        if (flag==true) {
+            System.out.println("Anagram String");
+        } else {
+            System.out.println("Not anagram String");
+        }
+    }
+    }
+}
+
+Answer6
+////WAP to implement panagram checking least inbuilt method being used.
+public class Q6 {
+    public static void main(String[] args) {
+        String s = "the quick brown fox jumps over a lazy dog";
+        s=s.replace(" ", "");
+        s=s.toLowerCase();
+        int array[] = new int[26];
+        for(int i=0;i<s.length();i++){
+            int k = s.charAt(i)-97;
+            array[k]=1;
+        }
+        boolean flag = true;
+        for (int i : array) {
+            if (i!=1)
+                flag=false;
+        }
+
+        if (flag) {
+            System.out.println("Panagram String");
+        } else {
+            System.out.println("Not panagram string");
+        }
+
+    }
+}
+
+Answer7
+//WAP to check if string contains all unique characters
+public class Q7 {
+    public static void main(String[] args) {
+        String s = "computer";
+        boolean unique = true;
+        for(int i=0;i<s.length()-1;i++){
+            for(int j=i+1;j<s.length();j++){
+                if (s.charAt(i)==s.charAt(j)) {
+                    unique=false;
+                    break;
+                }
+            }
+        }
+
+        if (unique) {
+            System.out.println("Uniuqe String");
+        } else {
+            System.out.println("Not unique");
+        }
+    }
+}
+
+Answer8
+//WAP to find maximum occuring character in string
+public class Q8 {
+    public static void main(String[] args) {
+        String s="javaprogram";
+        int array[] = new int[127];
+        for(int i=0;i<s.length();i++)
+        {
+            array[s.charAt(i)] = array[s.charAt(i)]+1;
+        }
+S
+        int max = 0;
+        char ch = ' ';
+       for(int i=0;i<s.length();i++){
+            if (max<array[s.charAt(i)]) {
+                max = array[s.charAt(i)];
+                ch = s.charAt(i);
+            }
+       }
+       System.out.println(ch+" occured "+max+" times");
+    }
+}
+ 
